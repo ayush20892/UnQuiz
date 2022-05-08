@@ -1,0 +1,107 @@
+header {
+  height: 135px;
+  width: 50em;
+  max-width: 80%;
+  background-color: var(--bg);
+  position: fixed;
+  top: 0;
+  z-index: var(--z-index-2);
+  margin: 10px auto 20px;
+}
+
+header > .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header > .navbar > .brand {
+  display: flex;
+  cursor: pointer;
+}
+
+header > .navbar > .brand > img {
+  width: var(--icon-width);
+  height: var(--icon-height);
+  margin: 8px 10px;
+}
+
+header > .navbar > .brand > .brand-name {
+  margin: 22px 14px;
+  letter-spacing: 4px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+header > .navbar > .nav-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+header > .navbar > .nav-icon > h4 {
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+header > .navbar > .nav-icon > span {
+  margin: 0 20px;
+}
+
+header > .navbar > .nav-icon > span > .icon {
+  font-size: 40px;
+  margin: 0 6px;
+}
+
+header > .navbar > .nav-icon > span > label {
+  position: relative;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+header > .user-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 50px;
+  margin-top: 30px;
+}
+
+header > .user-details > h3 {
+  font-size: 24px;
+}
+
+.quiz-heading {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    height: 133px;
+    width: none;
+    max-width: 90%;
+  }
+
+  header > .navbar > .nav-icon > span {
+    margin: 0 10px;
+  }
+
+  header > .navbar > .nav-icon > span > .icon {
+    margin: 0;
+  }
+
+  header > .navbar > .nav-icon > span > label {
+    display: none;
+  }
+
+  header > .user-details {
+    margin: 20px 0;
+  }
+
+  header > .user-details > h3 {
+    font-size: 20px;
+  }
+}
