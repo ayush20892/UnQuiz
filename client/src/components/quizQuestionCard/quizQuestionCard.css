@@ -1,0 +1,75 @@
+.quiz-question-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-timer {
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 45%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-question-card > .question {
+  /* width: 92%; */
+  margin: 20px 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.quiz-question-card > .options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-question-card > .options > button {
+  width: max(20%, 340px);
+  padding: 0.8rem 0rem;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 1rem;
+}
+
+.quiz-question-card > .options > button:hover {
+  border: 2px solid var(--brand-color);
+}
+
+.quiz-question-card > button {
+  margin: 20px 0;
+  width: 200px;
+  padding: 0.3rem 0;
+  font-size: 1.2rem;
+}
+
+.quiz-question-card > button:hover {
+  background-color: var(--brand-color);
+  color: #fff;
+}
+
+.quiz-question-card > .restart {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 0.5rem 1rem;
+  position: absolute;
+  bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz-question-card > .question {
+    margin: 20px 16px;
+  }
+}

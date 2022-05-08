@@ -1,0 +1,70 @@
+.quizResult {
+  /* margin: 5rem 1rem; */
+  text-align: center;
+}
+
+.quizResult > .score {
+  margin: 2rem 0;
+  font-size: 1.8rem;
+}
+
+.quizResult > .score > span {
+  font-weight: bold;
+}
+
+.quizResult > .right-wrong {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quizResult > .right-wrong > .answered-box {
+  width: 80%;
+  margin: 1rem 2rem;
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
+}
+
+.quizResult > .right-wrong > .correctly-answered {
+  border: 1px solid green;
+}
+
+.right-wrong > .correctly-answered > span {
+  margin: 0 1rem;
+  position: relative;
+  bottom: 0.1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.quizResult > .right-wrong > .wrongly-answered {
+  border: 1px solid red;
+  margin-bottom: 3rem;
+}
+
+.right-wrong > .wrongly-answered > span {
+  margin: 0 1rem;
+  position: relative;
+  bottom: 0.05rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.quizResult > a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+  .quizResult > .right-wrong > .answered-box {
+    width: 300px;
+  }
+
+}
