@@ -1,0 +1,54 @@
+.leaderboard-list > h2 {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+  width: 350px;
+}
+
+th {
+  font-size: 20px;
+}
+
+td {
+  font-weight: 500;
+}
+
+th:first-child,
+td:first-child,
+th:last-child,
+td:last-child {
+  width: 120px;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.user-tr{
+  border: 1px solid black;
+}
+
+@media screen and (max-width: 480px) {
+  table {
+    border-collapse: collapse;
+    width: 94%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
