@@ -23,7 +23,7 @@ export default async function loadInitialData({
   const data = await getAllQuizzes();
   if (data.success) quizDispatch({ type: "LOAD_QUIZ", payload: data.quiz });
 
-  if (session.userId) {
+  if (session?.userId) {
     const userData = await userDashboard();
 
     if (userData!.success === false) {
