@@ -8,7 +8,7 @@ const app = express();
 // Middlewares
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", "https://unquiz.netlify.app/"],
     credentials: true,
   })
 );
