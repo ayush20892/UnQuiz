@@ -73,10 +73,10 @@ export function LoginBox() {
             <Link to="/user/forgotPassword">Forgot Password ?</Link>
           </div>
           <button onClick={loginHandler}>Continue</button>
-          <h5>Or</h5>
+          {/* <h5>Or</h5>
           <button onClick={guestLoginHandler} className="guest-login-btn">
             Guest Login
-          </button>
+          </button> */}
           <h5>
             New to Website?{" "}
             <Link to="/user/signup" style={{ textDecoration: "none" }}>

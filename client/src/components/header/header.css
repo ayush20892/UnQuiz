@@ -80,9 +80,13 @@ header > .user-details > h3 {
 
 @media screen and (max-width: 768px) {
   header {
-    height: 133px;
+    height: 50px;
     width: none;
     max-width: 90%;
+  }
+
+  header > .navbar {
+    height: 100%;
   }
 
   header > .navbar > .nav-icon > span {

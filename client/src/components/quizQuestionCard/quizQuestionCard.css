@@ -72,4 +72,9 @@
   .quiz-question-card > .question {
     margin: 20px 16px;
   }
+
+  .quiz-question-card > .restart {
+    position: relative;
+    top: 10px;
+  }
 }

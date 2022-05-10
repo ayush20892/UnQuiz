@@ -6,8 +6,7 @@
 
 .login-box {
   width: 25rem;
-  /* height: 20rem; */
-  margin-top: 10%;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   color: var(--text-primary);
