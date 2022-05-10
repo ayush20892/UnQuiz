@@ -10,9 +10,10 @@ type User = {
 
 function LeaderboardList() {
   const [users, setUser] = useState<User[]>([]);
-  const { authState } = useAuth();
+  const { authState, setNetworkLoader } = useAuth();
   useEffect(() => {
     (async () => {
+      setNetworkLoader(true);
       const data = await getAllUsers();
       if (data.success) {
         const newusers = [...data.Users];
@@ -21,6 +22,7 @@ function LeaderboardList() {
         });
         setUser(rankedUsers);
       }
+      setNetworkLoader(false);
     })();
   }, []);
 
