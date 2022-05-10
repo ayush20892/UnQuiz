@@ -4,9 +4,11 @@ import { useQuiz } from "../context/quizContext";
 
 function Home() {
   const { quizState, quizDispatch } = useQuiz();
+
   useEffect(() => {
     quizDispatch({ type: "RESET" });
   }, []);
+
   return (
     <>
       <QuizCard quizzes={quizState.quizzes} />

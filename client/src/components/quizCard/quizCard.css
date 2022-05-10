@@ -1,5 +1,4 @@
 .quiz-list {
-  margin-top: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -7,7 +6,7 @@
 }
 
 .quiz-card {
-  margin: 1rem 2rem;
+  width: 90%;
   border: 0.1px solid gray;
   padding: 0.5rem 0;
   display: flex;
@@ -17,7 +16,7 @@
 }
 
 .quiz-card > img {
-  width: 90%;
+  width: 96%;
 }
 
 .quiz-card > h3 {
@@ -50,11 +49,8 @@
 }
 
 @media screen and (min-width: 768px) {
-  .quiz-card > img {
-    width: 96%;
-  }
-
   .quiz-card {
+    margin: 1rem 2rem;
     width: 400px;
     display: flex;
     flex-direction: column;
