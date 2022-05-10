@@ -22,7 +22,7 @@
 <p>✨ UnQuiz is Quiz app with a leaderboard to compete ✨</p>
 
 ## Preview (Responsive) :
-<!-- ![](/src/icon/UnVisual.gif) -->
+![](/client/src/icon/UnQuiz.gif)
 
 ## Tech Stack :  <img src="https://img.shields.io/badge/react%20-%23121011.svg?&style=for-the-badge&logo=react&logoColor=white"/> <img src="https://img.shields.io/badge/express%20-%23121011.svg?&style=for-the-badge&logo=express&logoColor=white" /> <img src="https://img.shields.io/badge/MongoDB%20-%23121011.svg?&style=for-the-badge&logo=MongoDB&logoColor=white"/> 
 
