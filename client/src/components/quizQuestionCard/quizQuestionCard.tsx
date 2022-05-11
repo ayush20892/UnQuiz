@@ -92,7 +92,7 @@ export function QuizQuestionCard({
             navigate(`/quiz/${quizName}/${0}`);
           }}
         >
-          Resatart Quiz
+          Restart Quiz
         </button>
 
         <button
