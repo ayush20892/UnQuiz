@@ -2,13 +2,14 @@ import "./quizResultCard.css";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import { useQuiz } from "../../context/quizContext";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { updateUserScore } from "../../utils/networkCalls";
 
 export function QuizResultCard() {
   const { quizState, quizDispatch } = useQuiz();
   const { authState, authDispatch } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     quizDispatch({ type: "RIGHT_WRONG" });
@@ -16,6 +17,7 @@ export function QuizResultCard() {
   }, [quizDispatch]);
 
   useEffect(() => {
+    if (quizState.quizToPlay === "") navigate("/");
     const newUserScore = authState.score + quizState.currentQuizScore;
     authDispatch({ type: "UPDATE_SCORE", payload: newUserScore });
     (async () => {

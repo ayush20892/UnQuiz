@@ -1,6 +1,9 @@
 .quizResult {
-  /* margin: 5rem 1rem; */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .quizResult > .score {
@@ -59,12 +62,8 @@
   padding: 0.5rem 2rem;
 }
 
-
-
 @media screen and (min-width: 768px) {
-
   .quizResult > .right-wrong > .answered-box {
     width: 300px;
   }
-
 }

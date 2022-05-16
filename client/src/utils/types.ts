@@ -13,7 +13,7 @@ export type Question = {
 
 export type Quiz = {
   quizName: string;
-  quizImage?: string;
+  quizImage: string;
   questions: Question[];
 };
 
@@ -49,10 +49,11 @@ export type Children = { children: React.ReactElement };
 export type QuizInitialState = {
   quizzes: Quiz[];
   currentQuizScore: number;
-  optionSelected: Option[] | [];
+  optionSelected: Option[];
   userAnswer: {
     right: number;
     wrong: number;
+    notAnswered: number;
   };
   showAnswer: boolean;
   timer: number;
@@ -66,7 +67,13 @@ export type QuizAction =
       type: "CURRENT_QUIZ_SCORE";
       payload: { question: Question; option: Option };
     }
-  | { type: "SELECTED_OPTION"; payload: Option }
+  | {
+      type: "SELECTED_OPTION";
+      payload: {
+        option: Option;
+        questionNumber: number;
+      };
+    }
   | { type: "CLEAR_OPTIONS" }
   | { type: "RIGHT_WRONG" }
   | { type: "SHOW_ANSWER"; payload: boolean }

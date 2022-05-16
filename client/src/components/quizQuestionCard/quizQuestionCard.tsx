@@ -13,6 +13,7 @@ export function QuizQuestionCard({
   questionNumber: number;
 }) {
   const [currentOptionSelected, setCurrentOptionSelected] = useState("");
+  const [optionLocked, setOptionLocked] = useState(false);
   const { quizState, quizDispatch } = useQuiz();
   const navigate = useNavigate();
   const quizData: Question[] = quizState.quizzes.find(
@@ -21,6 +22,7 @@ export function QuizQuestionCard({
   const currentquestion = quizData[questionNumber];
 
   useEffect(() => {
+    setOptionLocked(false);
     quizDispatch({ type: "SHOW_ANSWER", payload: false });
     if (questionNumber < 5) quizDispatch({ type: "SET_TIMER", payload: 10 });
   }, [questionNumber, quizDispatch]);
@@ -28,23 +30,29 @@ export function QuizQuestionCard({
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (quizState.timer > 0) {
-      timeout = setTimeout(
-        () => quizDispatch({ type: "SET_TIMER", payload: quizState.timer - 1 }),
-        1000
-      );
+      if (!optionLocked)
+        timeout = setTimeout(
+          () =>
+            quizDispatch({ type: "SET_TIMER", payload: quizState.timer - 1 }),
+          1000
+        );
     } else {
       navigate(`/quiz/${quizName}/${increaseQuestionNumber(questionNumber)}`);
     }
     return () => {
       clearTimeout(timeout);
     };
-  }, [quizState.timer, navigate, questionNumber, quizName, quizDispatch]);
+  }, [
+    quizState.timer,
+    navigate,
+    questionNumber,
+    quizName,
+    quizDispatch,
+    optionLocked,
+  ]);
 
   return (
-    <div
-      className="quiz-question-card"
-      // onBlur={() => quizDispatch({ type: "RESET" })}
-    >
+    <div className="quiz-question-card">
       <div className="quiz-timer"> {quizState.timer} </div>
       <h2 className="question">
         Q{currentquestion.questionNumber}&gt; {currentquestion.question}
@@ -61,13 +69,19 @@ export function QuizQuestionCard({
                   : {}
               }
               onClick={() => {
-                setCurrentOptionSelected(option.value);
-                quizDispatch({ type: "SHOW_ANSWER", payload: true });
-                quizDispatch({ type: "SELECTED_OPTION", payload: option });
-                quizDispatch({
-                  type: "CURRENT_QUIZ_SCORE",
-                  payload: { question: currentquestion, option: option },
-                });
+                if (!optionLocked) {
+                  setOptionLocked(true);
+                  setCurrentOptionSelected(option.value);
+                  quizDispatch({ type: "SHOW_ANSWER", payload: true });
+                  quizDispatch({
+                    type: "SELECTED_OPTION",
+                    payload: { option, questionNumber },
+                  });
+                  quizDispatch({
+                    type: "CURRENT_QUIZ_SCORE",
+                    payload: { question: currentquestion, option: option },
+                  });
+                }
               }}
             >
               {option.value}
@@ -77,6 +91,15 @@ export function QuizQuestionCard({
       </div>
       <button
         onClick={() => {
+          if (!optionLocked) {
+            quizDispatch({
+              type: "SELECTED_OPTION",
+              payload: {
+                questionNumber,
+                option: { value: "notAnswered", isRight: false },
+              },
+            });
+          }
           navigate(
             `/quiz/${quizName}/${increaseQuestionNumber(questionNumber)}`
           );

@@ -12,7 +12,7 @@ export function quizReducer(
         ...state,
         currentQuizScore: 0,
         optionSelected: [],
-        userAnswer: { right: 0, wrong: 0 },
+        userAnswer: { right: 0, wrong: 0, notAnswered: 0 },
       };
     case "CURRENT_QUIZ_SCORE":
       return {
@@ -24,24 +24,29 @@ export function quizReducer(
         ),
       };
     case "SELECTED_OPTION":
+      const newOptionsSelected = [...state.optionSelected];
+      newOptionsSelected[action.payload.questionNumber] = action.payload.option;
       return {
         ...state,
-        optionSelected: [...state.optionSelected, action.payload],
+        optionSelected: newOptionsSelected,
       };
     case "CLEAR_OPTIONS":
       return { ...state, optionSelected: [] };
     case "RIGHT_WRONG":
       let right = 0;
       let wrong = 0;
+      let notAnswered = 0;
       state.optionSelected.forEach((ele: Option) => {
-        if (ele.isRight === true) right = right + 1;
-        else wrong = wrong + 1;
+        if (ele.value === "notAnswered") notAnswered += 1;
+        else if (ele.isRight === true) right += 1;
+        else wrong += 1;
       });
       return {
         ...state,
         userAnswer: {
-          right: right,
-          wrong: wrong,
+          right,
+          wrong,
+          notAnswered,
         },
       };
     case "SHOW_ANSWER":
@@ -74,6 +79,7 @@ export const quizInitialState: QuizInitialState = {
   userAnswer: {
     right: 0,
     wrong: 0,
+    notAnswered: 0,
   },
   showAnswer: false,
   timer: 10,

@@ -48,6 +48,10 @@
   font-weight: 300;
 }
 
+.instruction-list > h4 > button {
+  background-color: lightsalmon;
+}
+
 .modal-box > button {
   display: flex;
   justify-content: center;
