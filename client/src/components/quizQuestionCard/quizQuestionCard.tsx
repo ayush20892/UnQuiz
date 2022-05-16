@@ -110,6 +110,7 @@ export function QuizQuestionCard({
       <div className="restart">
         <button
           onClick={() => {
+            setOptionLocked(false);
             quizDispatch({ type: "RESET" });
             quizDispatch({ type: "SHOW_ANSWER", payload: false });
             navigate(`/quiz/${quizName}/${0}`);
